@@ -20,3 +20,12 @@ rm -r packaging/
 The resulting AMI will be compatible with the Netflix naming scheme, so it works perfectly with e.g. [Asgard](http://github.com/netflix/Asgard)
 
 It expects the wheels to be uploaded to an S3 bucket - you must specify the name with the $WHEELSHOP_S3_BUCKET environment variable.
+
+Using with dynpacker
+--------------------
+
+Want to create AMIs much faster? Wheelshop and dynpacker is a great fit. Add the following to your dynpacker CLI command:
+
+```
+--install-command "pip install --index-url https://<your wheelshop url>/ --extra-index-url https://pypi.python.org/simple/ -r requirements.txt"
+```
